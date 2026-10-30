@@ -1,6 +1,7 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
 
 void main() {
 // Habilitamos los Logs
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Clean architecture',
+      title: 'Quite Simple Chat',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       ),
+      home: DmPage(),
     );
   }
 }
