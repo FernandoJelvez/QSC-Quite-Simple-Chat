@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_presenter.dart';
+import 'package:quite_simple_chat/app/utils/last_time_formater.dart';
 import 'package:quite_simple_chat/data/repositories/mock/data_mock_dm_chat_repository.dart';
 
 import '../../../domain/entities/dm_chat.dart';
@@ -36,7 +37,7 @@ class DmController extends Controller {
       List<Column> widgets = dmChats!.map(
           (e)=> Column(
             children: <Widget>[
-              ListTile(leading: CircleAvatar(),title: Text(e.name!), subtitle: Text(e.lastMessage!),trailing: Text(e.lastTime!.toString()),),
+              ListTile(leading: CircleAvatar(),title: Text(e.name!), subtitle: Text(e.lastMessage!),trailing: Text(LastTimeFormater.format(e.lastTime!))),
               Divider(),
             ],
           )
