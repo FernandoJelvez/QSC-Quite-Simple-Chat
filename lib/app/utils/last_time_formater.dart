@@ -7,6 +7,8 @@ class LastTimeFormater {
       return "${_monthToString(local.month)} ${local.day}, ${local.year}";
     } else if (local.isBefore(today.subtract(Duration(days: 1)))) {
       return _weekdayToString(local.weekday);
+    } else if (local.isBefore(today)) {
+      return "yesterday";
     } else {
       return "${local.hour}:${local.minute}";
     }
