@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 
 import '../../../data/repositories/mock/data_mock_group_chat_repository.dart';
+import '../../pages.dart';
 import 'groups_controller.dart';
 
 class GroupsPage extends CleanView {
@@ -15,6 +16,7 @@ class GroupsPage extends CleanView {
 
 class _GroupPageState extends CleanViewState<GroupsPage,GroupsController> {
   _GroupPageState() : super(GroupsController(DataMockGroupChatRepository()));
+  int currentPageIndex = 1;
   @override
   Widget get view {
     return Scaffold(
@@ -29,6 +31,19 @@ class _GroupPageState extends CleanViewState<GroupsPage,GroupsController> {
               );
             }
         ),
+      ),
+      bottomNavigationBar:  NavigationBar(
+        onDestinationSelected: (int index) {
+          if (index == 0) {
+            Navigator.pushReplacementNamed(
+                context, Pages.mainPage, arguments: {});
+          }
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const<Widget>[
+          NavigationDestination(icon: Icon(Icons.person), label: "dm"),
+          NavigationDestination(icon: Icon(Icons.groups), label: "groups")
+        ],
       ),
     );
   }}

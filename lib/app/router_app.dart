@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
+import 'package:quite_simple_chat/app/pages/groups/groups_view.dart';
 
 class RouterApp {
   final RouteObserver<PageRoute> routeObserver;
@@ -13,6 +14,8 @@ class RouterApp {
     switch (settings.name) {
       case Pages.mainPage:
         return _buildRoute(settings, DmPage());
+      case Pages.groupsList:
+        return _buildRoute(settings, GroupsPage());
       default:
         return _buildRoute(settings, DmPage());
     }
