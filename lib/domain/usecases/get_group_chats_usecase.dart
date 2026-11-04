@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:logging/logging.dart';
-import 'package:quite_simple_chat/domain/repositories/group_repository.dart';
+import 'package:quite_simple_chat/domain/repositories/chat_repository.dart';
 
-import '../entities/group_chat.dart';
+import '../entities/chat.dart';
 
 class GetGroupChatsUsecase extends UseCase<GetGroupChatsUsecaseResponse, GetGroupChatsUsecaseParams> {
-  final GroupRepository repository;
+  final ChatRepository repository;
   final _logger;
   GetGroupChatsUsecase(this.repository) : _logger = Logger("GetGroupChatsUsecase");
 
@@ -16,7 +16,7 @@ class GetGroupChatsUsecase extends UseCase<GetGroupChatsUsecaseResponse, GetGrou
     final controller = StreamController<GetGroupChatsUsecaseResponse>();
 
     try {
-      final List<GroupChat> groupChats = await repository.getGroupChatList();
+      final List<Chat> groupChats = await repository.getGroupChatList();
       _logger.finest("GetGroupChatsList executed successfully");
       controller.add(GetGroupChatsUsecaseResponse(groupChats));
       controller.close();
@@ -35,6 +35,6 @@ class GetGroupChatsUsecaseParams {
 }
 
 class GetGroupChatsUsecaseResponse {
-  final List<GroupChat> groupChats;
+  final List<Chat> groupChats;
   GetGroupChatsUsecaseResponse(this.groupChats);
 }

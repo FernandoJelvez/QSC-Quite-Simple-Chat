@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_presenter.dart';
 import 'package:quite_simple_chat/app/utils/last_time_formater.dart';
-import 'package:quite_simple_chat/data/repositories/mock/data_mock_dm_chat_repository.dart';
+import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
 
-import '../../../domain/entities/dm_chat.dart';
+import '../../../domain/entities/chat.dart';
 
 class DmController extends Controller {
-  List<DmChat>? dmChats;
+  List<Chat>? dmChats;
   final DmPresenter dmPresenter;
 
-  DmController(DataMockDmChatRepository dataMockDmChatRepository)
-  : dmPresenter = DmPresenter(dataMockDmChatRepository), super();
+  DmController(DataMockChatRepository dataMockChatRepository)
+  : dmPresenter = DmPresenter(dataMockChatRepository), super();
 
   @override
   void onInitState() {
@@ -25,7 +25,7 @@ class DmController extends Controller {
       print("completed");
     };
     dmPresenter.getDmChatsOnError = (e) {};
-    dmPresenter.getDmChatsOnNext = (List<DmChat> response) {
+    dmPresenter.getDmChatsOnNext = (List<Chat> response) {
       dmChats = response;
       refreshUI();
     };

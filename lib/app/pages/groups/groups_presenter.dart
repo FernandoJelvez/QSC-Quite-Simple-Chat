@@ -1,5 +1,5 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:quite_simple_chat/domain/repositories/group_repository.dart';
+import 'package:quite_simple_chat/domain/repositories/chat_repository.dart';
 import 'package:quite_simple_chat/domain/usecases/get_group_chats_usecase.dart';
 
 class GroupsPresenter extends Presenter{
@@ -9,7 +9,7 @@ class GroupsPresenter extends Presenter{
   Function? getGroupChatsOnNext;
   
   GetGroupChatsUsecase _getGroupChatsUsecase;
-  GroupsPresenter(GroupRepository groupRepository) : _getGroupChatsUsecase = GetGroupChatsUsecase(groupRepository);
+  GroupsPresenter(ChatRepository chatRepository) : _getGroupChatsUsecase = GetGroupChatsUsecase(chatRepository);
 
   @override
   void dispose() {

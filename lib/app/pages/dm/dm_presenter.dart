@@ -1,5 +1,5 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:quite_simple_chat/domain/repositories/dm_repository.dart';
+import 'package:quite_simple_chat/domain/repositories/chat_repository.dart';
 import 'package:quite_simple_chat/domain/usecases/get_dm_chats_usecase.dart';
 
 class DmPresenter extends Presenter{
@@ -9,7 +9,7 @@ class DmPresenter extends Presenter{
   Function? getDmChatsOnNext;
   
   GetDmChatsUsecase _getDmChatsUsecase;
-  DmPresenter(DmRepository dmRepository) : _getDmChatsUsecase = GetDmChatsUsecase(dmRepository);
+  DmPresenter(ChatRepository chatRepository) : _getDmChatsUsecase = GetDmChatsUsecase(chatRepository);
 
   @override
   void dispose() {

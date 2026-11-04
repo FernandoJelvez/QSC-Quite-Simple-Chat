@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 
-import '../../../data/repositories/mock/data_mock_group_chat_repository.dart';
+import '../../../data/repositories/mock/data_mock_chat_repository.dart';
 import '../../pages.dart';
 import 'groups_controller.dart';
 
@@ -15,7 +15,7 @@ class GroupsPage extends CleanView {
 }
 
 class _GroupPageState extends CleanViewState<GroupsPage,GroupsController> {
-  _GroupPageState() : super(GroupsController(DataMockGroupChatRepository()));
+  _GroupPageState() : super(GroupsController(DataMockChatRepository()));
   int currentPageIndex = 1;
   @override
   Widget get view {

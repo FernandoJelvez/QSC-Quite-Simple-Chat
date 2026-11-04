@@ -2,15 +2,16 @@ import 'dart:async';
 
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:logging/logging.dart';
-import 'package:quite_simple_chat/domain/entities/dm_chat.dart';
-import 'package:quite_simple_chat/domain/repositories/dm_repository.dart';
+
+import '../entities/chat.dart';
+import '../repositories/chat_repository.dart';
 
 class GetDmChatsUsecase
   extends UseCase<GetDmChatsUsecaseResponse, GetDmChatsUsecaseParams>{
-  final DmRepository dmRepository;
+  final ChatRepository chatRepository;
   
   final _logger;
-  GetDmChatsUsecase(this.dmRepository) : _logger = Logger('GetDmChatsUsecase');
+  GetDmChatsUsecase(this.chatRepository) : _logger = Logger('GetDmChatsUsecase');
   
   @override
   Future<Stream<GetDmChatsUsecaseResponse>> buildUseCaseStream(
@@ -20,7 +21,7 @@ class GetDmChatsUsecase
 
     try {
       print("executing usecase");
-      final List<DmChat> dmChats = await dmRepository.getDmChatList();
+      final List<Chat> dmChats = await chatRepository.getDmChatList();
       controller.add(GetDmChatsUsecaseResponse(dmChats));
       controller.close();
     } catch (e){
@@ -37,6 +38,6 @@ class GetDmChatsUsecaseParams {
 }
 
 class GetDmChatsUsecaseResponse {
-  final List<DmChat> dmChats;
+  final List<Chat> dmChats;
   GetDmChatsUsecaseResponse(this.dmChats);
 }

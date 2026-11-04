@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:quite_simple_chat/app/pages/groups/groups_presenter.dart';
 import 'package:quite_simple_chat/app/utils/last_time_formater.dart';
-import 'package:quite_simple_chat/data/repositories/mock/data_mock_group_chat_repository.dart';
+import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
 
-import '../../../domain/entities/group_chat.dart';
+import '../../../domain/entities/chat.dart';
 
 class GroupsController extends Controller {
-  List<GroupChat>? groupChats;
+  List<Chat>? groupChats;
   final GroupsPresenter groupPresenter;
 
-  GroupsController(DataMockGroupChatRepository dataMockGroupChatRepository)
+  GroupsController(DataMockChatRepository dataMockGroupChatRepository)
   : groupPresenter = GroupsPresenter(dataMockGroupChatRepository), super();
 
   @override
@@ -25,7 +25,7 @@ class GroupsController extends Controller {
       print("completed");
     };
     groupPresenter.getGroupChatsOnError = (e) {};
-    groupPresenter.getGroupChatsOnNext = (List<GroupChat> response) {
+    groupPresenter.getGroupChatsOnNext = (List<Chat> response) {
       groupChats = response;
       refreshUI();
     };
