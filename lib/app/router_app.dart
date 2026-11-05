@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
+import 'package:quite_simple_chat/app/pages/dm_chat/dm_chat_view.dart';
 import 'package:quite_simple_chat/app/pages/groups/groups_view.dart';
 
 class RouterApp {
@@ -16,6 +17,8 @@ class RouterApp {
         return _buildRoute(settings, DmPage());
       case Pages.groupsList:
         return _buildRoute(settings, GroupsPage());
+      case Pages.dmChat:
+        return _buildRoute(settings, DmChatPage(chatName: args["chat_name"],chatId: args["chat_id"]));
       default:
         return _buildRoute(settings, DmPage());
     }

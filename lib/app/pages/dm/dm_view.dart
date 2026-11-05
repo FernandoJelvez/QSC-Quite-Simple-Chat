@@ -25,7 +25,7 @@ class _DmPageState extends CleanViewState<DmPage,DmController> {
       body: Center(
         child: ControlledWidgetBuilder<DmController>(
             builder: (context,controller) {
-              List<Widget> dmChats = controller.returnedMsg();
+              List<Widget> dmChats = controller.returnedMsg(context);
               return ListView(
                 children: dmChats
               );

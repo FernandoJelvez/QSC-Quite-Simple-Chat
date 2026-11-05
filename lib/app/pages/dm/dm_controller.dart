@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
+import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_presenter.dart';
 import 'package:quite_simple_chat/app/utils/last_time_formater.dart';
 import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
@@ -31,13 +32,14 @@ class DmController extends Controller {
     };
   }
 
-  List<Widget> returnedMsg() {
+  List<Widget> returnedMsg(BuildContext context) {
     print("returning");
     if (dmChats!=null){
       List<Column> widgets = dmChats!.map(
           (e)=> Column(
             children: <Widget>[
-              ListTile(leading: CircleAvatar(),title: Text(e.name!), subtitle: Text(e.lastMessage!),trailing: Text(LastTimeFormater.format(e.lastTime!))),
+              ListTile(leading: CircleAvatar(),title: Text(e.name!), subtitle: Text(e.lastMessage!),trailing: Text(LastTimeFormater.format(e.lastTime!)),
+              onTap: (){Navigator.pushNamed(context, Pages.dmChat, arguments: {"chat_name": e.name,"chat_id":e.id});}),
               Divider(),
             ],
           )
