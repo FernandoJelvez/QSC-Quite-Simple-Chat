@@ -36,7 +36,9 @@ class _DmPageState extends CleanViewState<DmChatPage, DmChatController>{
                     )
 
               ),
-              Form(child: TextFormField(decoration: InputDecoration(border: OutlineInputBorder())))
+              Form(child:Row(children:[ Expanded(child:TextFormField(decoration: InputDecoration(border: OutlineInputBorder())))
+              ,IconButton(onPressed: (){print("pressed");}, icon: Icon(Icons.send),style: ButtonStyle(),)]
+              ))
               ]);
             }
         ),
