@@ -12,6 +12,7 @@ class DmChatController extends Controller {
   final DmChatPresenter dmChatPresenter;
   final String chatId;
   final Logger _logger;
+  TextEditingController input = TextEditingController();
 
   DmChatController(DataMockMessageRepository messageRepository, {required this.chatId})
   : dmChatPresenter = DmChatPresenter(messageRepository), _logger=Logger("DmChatController"), super();
@@ -55,6 +56,14 @@ class DmChatController extends Controller {
       return widgets;
     } else {
       return List.empty();
+    }
+  }
+
+  void sendMessage(){
+    if (input.text.isNotEmpty) {
+      messages.add(Message("", chatId, input.text, DateTime.now(), "you"));
+      input.clear();
+      refreshUI();
     }
   }
 }

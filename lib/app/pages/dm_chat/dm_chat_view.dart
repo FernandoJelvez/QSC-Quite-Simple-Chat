@@ -27,7 +27,8 @@ class _DmPageState extends CleanViewState<DmChatPage, DmChatController>{
         child: ControlledWidgetBuilder<DmChatController>(
             builder: (context,controller) {
               List<Widget> dmChats = controller.returnedMsg();
-              return Column(children: [
+              return Column(
+                  children: [
                 Expanded(
                   flex: Flex(direction: Axis.vertical).hashCode,
                   child:
@@ -36,8 +37,8 @@ class _DmPageState extends CleanViewState<DmChatPage, DmChatController>{
                     )
 
               ),
-              Form(child:Row(children:[ Expanded(child:TextFormField(decoration: InputDecoration(border: OutlineInputBorder())))
-              ,IconButton(onPressed: (){print("pressed");}, icon: Icon(Icons.send),style: ButtonStyle(),)]
+              Form(child:Row(children:[ Expanded(child:TextField(controller: controller.input,maxLines: 4,minLines: 1,decoration: InputDecoration(border: OutlineInputBorder())))
+              ,IconButton(onPressed: (){print("pressed");controller.sendMessage();}, icon: Icon(Icons.send),style: ButtonStyle(),)]
               ))
               ]);
             }
