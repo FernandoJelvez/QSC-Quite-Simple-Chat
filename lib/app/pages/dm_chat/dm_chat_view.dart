@@ -27,9 +27,17 @@ class _DmPageState extends CleanViewState<DmChatPage, DmChatController>{
         child: ControlledWidgetBuilder<DmChatController>(
             builder: (context,controller) {
               List<Widget> dmChats = controller.returnedMsg();
-              return ListView(
-                  children: dmChats
-              );
+              return Column(children: [
+                Expanded(
+                  flex: Flex(direction: Axis.vertical).hashCode,
+                  child:
+                    ListView(
+                        children: dmChats
+                    )
+
+              ),
+              Form(child: TextFormField(decoration: InputDecoration(border: OutlineInputBorder())))
+              ]);
             }
         ),
       ),
