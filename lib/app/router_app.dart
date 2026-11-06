@@ -3,6 +3,7 @@ import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
 import 'package:quite_simple_chat/app/pages/dm_chat/dm_chat_view.dart';
 import 'package:quite_simple_chat/app/pages/groups/groups_view.dart';
+import 'package:quite_simple_chat/app/pages/main_page/main_view.dart';
 
 class RouterApp {
   final RouteObserver<PageRoute> routeObserver;
@@ -14,13 +15,15 @@ class RouterApp {
 
     switch (settings.name) {
       case Pages.mainPage:
-        return _buildRoute(settings, DmPage());
+        return _buildRoute(settings, MainPage());
       case Pages.groupsList:
         return _buildRoute(settings, GroupsPage());
       case Pages.dmChat:
         return _buildRoute(settings, DmChatPage(chatName: args["chat_name"],chatId: args["chat_id"]));
-      default:
+      case Pages.dmList:
         return _buildRoute(settings, DmPage());
+      default:
+        return _buildRoute(settings, MainPage());
     }
   }
 

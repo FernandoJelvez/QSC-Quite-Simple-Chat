@@ -1,7 +1,7 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
+import 'package:quite_simple_chat/app/pages/main_page/main_view.dart';
 import 'package:quite_simple_chat/app/router_app.dart';
 
 void main() {
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
       ),
-      home: DmPage(),
+      home: MainPage(),
       navigatorObservers: [_router.routeObserver],
       onGenerateRoute: _router.getRoute,
     );

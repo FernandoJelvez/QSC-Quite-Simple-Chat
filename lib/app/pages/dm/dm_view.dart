@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:quite_simple_chat/app/pages.dart';
 
 import '../../../data/repositories/mock/data_mock_chat_repository.dart';
 import 'dm_controller.dart';
@@ -31,19 +30,6 @@ class _DmPageState extends CleanViewState<DmPage,DmController> {
               );
             }
         ),
-      ),
-      bottomNavigationBar:  NavigationBar(
-        onDestinationSelected: (int index) {
-          if (index == 1) {
-            Navigator.pushReplacementNamed(
-                context, Pages.groupsList, arguments: {});
-          }
-        },
-        selectedIndex: currentPageIndex,
-        destinations: const<Widget>[
-          NavigationDestination(icon: Icon(Icons.person), label: "dm"),
-          NavigationDestination(icon: Icon(Icons.groups), label: "groups")
-        ],
       ),
     );
   }}
