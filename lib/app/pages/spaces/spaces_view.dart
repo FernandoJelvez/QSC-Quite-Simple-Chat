@@ -19,7 +19,9 @@ class _SpacesPageState extends CleanViewState<SpacesPage, SpacesController> {
   Widget get view {
     return Scaffold(
       key: GlobalKey(),
-      appBar: AppBar(title: const Text('Spaces'), foregroundColor: Colors.white, backgroundColor: Colors.deepOrange),
+      appBar: AppBar(title: const Text('Spaces'), foregroundColor: Colors.white, backgroundColor: Colors.deepOrange, actions: [
+        IconButton(onPressed: (){}, icon: Icon(Icons.add))
+      ],),
       body: Center(
         child: ControlledWidgetBuilder<SpacesController>(
             builder: (context,controller) {
@@ -29,6 +31,10 @@ class _SpacesPageState extends CleanViewState<SpacesPage, SpacesController> {
               );
             }
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {  },
+          child: Icon(Icons.explore)
       ),
     );
   }
