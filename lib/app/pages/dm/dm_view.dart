@@ -31,5 +31,27 @@ class _DmPageState extends CleanViewState<DmPage,DmController> {
             }
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: (){
+            showDialog(
+                context: context,
+                builder: (BuildContext buildContext){
+                  return AlertDialog(
+                      title: Text("Create a new DM"),
+                    content: Form(
+                      child: TextFormField(
+                        decoration: InputDecoration(label: Text("contact id")),
+                      ),
+                    ),
+                    actions: [
+                      TextButton(onPressed: () {Navigator.of(context).pop();}, child: Text("Cancel")),
+                      TextButton(onPressed: () {Navigator.of(context).pop();}, child: Text("Accept"))
+                    ],
+                  );
+                }
+            );
+          }
+      ),
     );
   }}
