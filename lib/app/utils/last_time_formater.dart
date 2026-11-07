@@ -10,7 +10,7 @@ class LastTimeFormater {
     } else if (local.isBefore(today)) {
       return "yesterday";
     } else {
-      return "${local.hour}:${local.minute}";
+      return "${_formatTime(local.hour)}:${_formatTime(local.minute)}";
     }
   }
   static String _weekdayToString(int day) {
@@ -23,5 +23,14 @@ class LastTimeFormater {
     List<String> months = ["january","february","march","april","may","june",
       "july","august","september","october","november","december"];
     return months[month-1];
+  }
+  static String _formatTime(int amountOfUnit){
+    String amountString;
+    if (amountOfUnit<10){
+      amountString = "0$amountOfUnit";
+    } else {
+      amountString = "$amountOfUnit";
+    }
+    return amountString;
   }
 }
