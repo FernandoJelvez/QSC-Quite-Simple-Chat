@@ -4,6 +4,12 @@ import '../../../domain/entities/chat.dart';
 import '../../../domain/repositories/chat_repository.dart';
 
 class DataMockChatRepository extends ChatRepository {
+  List<Chat> subscribedSpaces = [
+    Chat("Lsg13afs12","#games", "new game out!", {"pedro","juan","diego","tom","richard","harry"},
+        "juan", DateTime.now().subtract(Duration(minutes:2)),ChatType.space,[]),
+    Chat("AEFo23F245","#animation", "anyone here uses blender?", {"pedro","juan","john","louis","jane"},
+        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.group,[]),
+  ];
   @override
   Future<List<Chat>> getGroupChatList() async {
     List<Chat> groups = [];
@@ -40,5 +46,10 @@ class DataMockChatRepository extends ChatRepository {
     list.sort((e,f) => f.lastTime!.compareTo(e.lastTime!));
     print("length ${list.length}");
     return list;
+  }
+
+  @override
+  Future<List<Chat>> getSubscribedSpacesList() async {
+    return subscribedSpaces;
   }
 }

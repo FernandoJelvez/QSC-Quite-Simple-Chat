@@ -3,6 +3,7 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:quite_simple_chat/app/pages/dm/dm_view.dart';
 import 'package:quite_simple_chat/app/pages/groups/groups_view.dart';
 import 'package:quite_simple_chat/app/pages/main_page/main_presenter.dart';
+import 'package:quite_simple_chat/app/pages/spaces/spaces_view.dart';
 
 class MainController extends Controller {
   int selectedIndex = 0;
@@ -12,7 +13,8 @@ class MainController extends Controller {
 
   List<Widget> widgetOptions = [
     DmPage(),
-    GroupsPage()
+    GroupsPage(),
+    SpacesPage()
   ];
 
   @override

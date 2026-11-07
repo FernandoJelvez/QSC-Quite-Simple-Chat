@@ -19,7 +19,8 @@ class _MainPageState extends CleanViewState<MainPage,MainController> {
           bottomNavigationBar: BottomNavigationBar(
               items: <BottomNavigationBarItem>[
                 controller.optionMenu(Icons.message, controller.selectedIndex==0,"DM"),
-                controller.optionMenu(Icons.groups, controller.selectedIndex==1,"Groups")
+                controller.optionMenu(Icons.groups, controller.selectedIndex==1,"Groups"),
+                controller.optionMenu(Icons.forum, controller.selectedIndex==2,"Spaces")
               ],
             onTap: controller.onItemTapped,
           ),
