@@ -1,5 +1,5 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:quite_simple_chat/domain/repositories/chat_repository.dart';
+import 'package:quite_simple_chat/domain/repositories/space_repository.dart';
 
 import '../../../domain/usecases/get_spaces_usecase.dart';
 
@@ -9,7 +9,7 @@ class DiscoverPresenter extends Presenter{
   Function? getSpacesOnNext;
 
   final GetSpacesUsecase _getSpacesUsecase;
-  DiscoverPresenter(ChatRepository chatRepository) : _getSpacesUsecase = GetSpacesUsecase(chatRepository);
+  DiscoverPresenter(SpaceRepository chatRepository) : _getSpacesUsecase = GetSpacesUsecase(chatRepository);
   @override
   void dispose() {
     _getSpacesUsecase.dispose();

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-
-import '../../../data/repositories/mock/data_mock_chat_repository.dart';
+import 'package:quite_simple_chat/data/repositories/mock/data_mock_space_repository.dart';
 import 'discover_controller.dart';
 
 class DiscoverPage extends CleanView {
@@ -13,7 +11,7 @@ class DiscoverPage extends CleanView {
 }
 
 class _DiscoverState extends CleanViewState<DiscoverPage, DiscoverController> {
-  _DiscoverState() : super(DiscoverController(DataMockChatRepository()));
+  _DiscoverState() : super(DiscoverController(DataMockSpaceRepository()));
   @override
   Widget get view {
     return Scaffold(

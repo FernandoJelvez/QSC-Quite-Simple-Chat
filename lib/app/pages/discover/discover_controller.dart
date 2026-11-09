@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:logging/logging.dart';
 import 'package:quite_simple_chat/app/pages/discover/discover_presenter.dart';
-import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
-
-import '../../../domain/entities/chat.dart';
+import 'package:quite_simple_chat/data/repositories/mock/data_mock_space_repository.dart';
+import 'package:quite_simple_chat/domain/entities/space.dart';
 
 class DiscoverController extends Controller {
-  List<Chat> spaces =[];
+  List<Space> spaces =[];
   final Logger _logger;
   final DiscoverPresenter discoverPresenter;
 
-  DiscoverController(DataMockChatRepository repository) :
+  DiscoverController(DataMockSpaceRepository repository) :
       discoverPresenter = DiscoverPresenter(repository), _logger = Logger("DiscoverController");
 
   @override
@@ -28,7 +27,7 @@ class DiscoverController extends Controller {
     discoverPresenter.getSpacesOnError=(e) {
       _logger.warning("getSpaces executed with errors");
     };
-    discoverPresenter.getSpacesOnNext =(List<Chat> response){
+    discoverPresenter.getSpacesOnNext =(List<Space> response){
       spaces = response;
       refreshUI();
     };

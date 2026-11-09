@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/spaces/spaces_controller.dart';
-import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
+import '../../../data/repositories/mock/data_mock_space_repository.dart';
 
 class SpacesPage extends CleanView {
   SpacesPage({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class SpacesPage extends CleanView {
 }
 
 class _SpacesPageState extends CleanViewState<SpacesPage, SpacesController> {
-  _SpacesPageState() : super(SpacesController(DataMockChatRepository()));
+  _SpacesPageState() : super(SpacesController(DataMockSpaceRepository()));
 
   @override
   Widget get view {

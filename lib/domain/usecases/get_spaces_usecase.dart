@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:logging/logging.dart';
+import 'package:quite_simple_chat/domain/entities/space.dart';
 
-import '../entities/chat.dart';
-import '../repositories/chat_repository.dart';
+import '../repositories/space_repository.dart';
 
 class GetSpacesUsecase extends UseCase<GetSpacesUsecaseResponse,GetSpacesUsecaseParams>{
-  final ChatRepository repository;
+  final SpaceRepository repository;
   final Logger _logger;
 
   GetSpacesUsecase(this.repository) : _logger = Logger("GetSpacesUsecase");
@@ -16,7 +16,7 @@ class GetSpacesUsecase extends UseCase<GetSpacesUsecaseResponse,GetSpacesUsecase
   Future<Stream<GetSpacesUsecaseResponse?>> buildUseCaseStream(GetSpacesUsecaseParams? params) async {
     final controller = StreamController<GetSpacesUsecaseResponse>();
     try {
-      List<Chat> spaces = await repository.getSpacesList();
+      List<Space> spaces = await repository.getSpacesList();
       controller.add(GetSpacesUsecaseResponse(spaces));
       _logger.finest("GetSpaces executed successfully");
       controller.close();
@@ -33,6 +33,6 @@ class GetSpacesUsecaseParams {
 }
 
 class GetSpacesUsecaseResponse {
-  List<Chat> spaces;
+  List<Space> spaces;
   GetSpacesUsecaseResponse(this.spaces);
 }

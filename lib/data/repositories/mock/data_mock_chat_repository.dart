@@ -4,20 +4,6 @@ import '../../../domain/entities/chat.dart';
 import '../../../domain/repositories/chat_repository.dart';
 
 class DataMockChatRepository extends ChatRepository {
-  List<Chat> subscribedSpaces = [
-    Chat("Lsg13afs12","#games", "new game out!", {"pedro","juan","diego","tom","richard","harry"},
-        "juan", DateTime.now().subtract(Duration(minutes:2)),ChatType.space,[]),
-    Chat("AEFo23F245","#animation", "anyone here uses blender?", {"pedro","juan","john","louis","jane"},
-        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.space,[]),
-  ];
-  List<Chat> spaces = [
-    Chat("Lsg13afs12","#games", "new game out!", {"pedro","juan","diego","tom","richard","harry"},
-        "juan", DateTime.now().subtract(Duration(minutes:2)),ChatType.space,[]),
-    Chat("AEFo23F245","#animation", "anyone here uses blender?", {"pedro","juan","john","louis","jane"},
-        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.space,[]),
-    Chat("AEG32qGEs1","#computers", "check this article about nvidia", {"qwerty","john123","potato","aff13","luke"},
-        "john123", DateTime.now().subtract(Duration(days: 4)),ChatType.group,[]),
-  ];
   @override
   Future<List<Chat>> getGroupChatList() async {
     List<Chat> groups = [];
@@ -54,15 +40,5 @@ class DataMockChatRepository extends ChatRepository {
     list.sort((e,f) => f.lastTime!.compareTo(e.lastTime!));
     print("length ${list.length}");
     return list;
-  }
-
-  @override
-  Future<List<Chat>> getSubscribedSpacesList() async {
-    return subscribedSpaces;
-  }
-
-  @override
-  Future<List<Chat>> getSpacesList() async {
-    return spaces;
   }
 }

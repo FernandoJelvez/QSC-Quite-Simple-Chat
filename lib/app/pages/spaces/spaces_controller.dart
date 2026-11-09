@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:logging/logging.dart';
 import 'package:quite_simple_chat/app/pages/spaces/spaces_presenter.dart';
-import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
-
-import '../../../domain/entities/chat.dart';
+import 'package:quite_simple_chat/data/repositories/mock/data_mock_space_repository.dart';
+import '../../../domain/entities/space.dart';
 import '../../utils/last_time_formater.dart';
 
 class SpacesController extends Controller {
-  List<Chat> subscribedSpaces = [];
+  List<Space> subscribedSpaces = [];
   SpacesPresenter spacesPresenter;
   final Logger _logger;
-  SpacesController(DataMockChatRepository repository) : spacesPresenter = SpacesPresenter(repository), _logger = Logger("SpacesController");
+  SpacesController(DataMockSpaceRepository repository) : spacesPresenter = SpacesPresenter(repository), _logger = Logger("SpacesController");
 
   @override
   void onInitState() {

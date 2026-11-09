@@ -1,6 +1,7 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:quite_simple_chat/domain/repositories/chat_repository.dart';
 import 'package:quite_simple_chat/domain/usecases/get_subscribed_spaces_usecase.dart';
+
+import '../../../domain/repositories/space_repository.dart';
 
 class SpacesPresenter extends Presenter{
   Function? getSubscribedSpacesOnComplete;
@@ -9,7 +10,7 @@ class SpacesPresenter extends Presenter{
   
   GetSubscribedSpacesUsecase _getSubscribedSpacesUsecase;
 
-  SpacesPresenter(ChatRepository repository) : _getSubscribedSpacesUsecase = GetSubscribedSpacesUsecase(repository);
+  SpacesPresenter(SpaceRepository repository) : _getSubscribedSpacesUsecase = GetSubscribedSpacesUsecase(repository);
   
   
   @override
