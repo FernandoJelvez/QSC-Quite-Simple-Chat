@@ -4,4 +4,5 @@ class Pages {
   static const String dmChat = "dm-chat";
   static const String dmList = "dm-list";
   static const String spacesList = "spaces-list";
+  static const String discoverPage = "discover-page";
 }

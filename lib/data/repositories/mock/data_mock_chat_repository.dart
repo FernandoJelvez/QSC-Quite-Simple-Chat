@@ -8,7 +8,15 @@ class DataMockChatRepository extends ChatRepository {
     Chat("Lsg13afs12","#games", "new game out!", {"pedro","juan","diego","tom","richard","harry"},
         "juan", DateTime.now().subtract(Duration(minutes:2)),ChatType.space,[]),
     Chat("AEFo23F245","#animation", "anyone here uses blender?", {"pedro","juan","john","louis","jane"},
-        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.group,[]),
+        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.space,[]),
+  ];
+  List<Chat> spaces = [
+    Chat("Lsg13afs12","#games", "new game out!", {"pedro","juan","diego","tom","richard","harry"},
+        "juan", DateTime.now().subtract(Duration(minutes:2)),ChatType.space,[]),
+    Chat("AEFo23F245","#animation", "anyone here uses blender?", {"pedro","juan","john","louis","jane"},
+        "diego", DateTime.now().subtract(Duration(days: 1)),ChatType.space,[]),
+    Chat("AEG32qGEs1","#computers", "check this article about nvidia", {"qwerty","john123","potato","aff13","luke"},
+        "john123", DateTime.now().subtract(Duration(days: 4)),ChatType.group,[]),
   ];
   @override
   Future<List<Chat>> getGroupChatList() async {
@@ -51,5 +59,10 @@ class DataMockChatRepository extends ChatRepository {
   @override
   Future<List<Chat>> getSubscribedSpacesList() async {
     return subscribedSpaces;
+  }
+
+  @override
+  Future<List<Chat>> getSpacesList() async {
+    return spaces;
   }
 }

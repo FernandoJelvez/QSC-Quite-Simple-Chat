@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
+import 'package:quite_simple_chat/app/pages.dart';
 import 'package:quite_simple_chat/app/pages/spaces/spaces_controller.dart';
 import 'package:quite_simple_chat/data/repositories/mock/data_mock_chat_repository.dart';
 
@@ -33,7 +34,7 @@ class _SpacesPageState extends CleanViewState<SpacesPage, SpacesController> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {  },
+          onPressed: () {Navigator.pushNamed(context, Pages.discoverPage, arguments: {});},
           child: Icon(Icons.explore)
       ),
     );
