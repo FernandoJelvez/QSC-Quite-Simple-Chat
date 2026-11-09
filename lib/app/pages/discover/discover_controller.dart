@@ -36,7 +36,7 @@ class DiscoverController extends Controller {
     List<Column> widgets = spaces.map(
         (e)=>Column(
           children: <Widget>[
-            ListTile(title: Text(e.name!), trailing: TextButton(onPressed: (){},child: Text("Follow"),),),
+            ListTile(title: Text(e.name!), subtitle: Text(e.description!, maxLines: 3,overflow: TextOverflow.ellipsis,), trailing: TextButton(onPressed: (){},child: Text("Follow"),),),
             Divider()
           ],
         )

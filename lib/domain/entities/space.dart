@@ -5,7 +5,8 @@ class Space {
   Set<String> members = {};
   String? lastMessenger;
   DateTime? lastTime;
+  String? description;
 
   Space(this.id, this.name, this.lastMessage, this.members, this.lastMessenger,
-      this.lastTime);
+      this.lastTime, this.description);
 }
